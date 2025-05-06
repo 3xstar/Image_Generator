@@ -5,8 +5,10 @@ import json
 import base64
 from PIL import Image, ImageTk
 import io
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
 class ImageGeneratorApp:
     def __init__(self, root):
         self.root = root
@@ -15,8 +17,8 @@ class ImageGeneratorApp:
         self.root.resizable(False, False)
 
         # API credentials
-        self.api_key = "58CEF484526E952B8F34D94DA1BB53D1"
-        self.secret_key = "F8388F255113A07C59DB4D99A4845A63"
+        self.api_key = os.getenv("API_KEY")
+        self.secret_key = os.getenv("SECRET_KEY")
         self.api_url = "https://api-key.fusionbrain.ai/"
 
         # GUI elements
